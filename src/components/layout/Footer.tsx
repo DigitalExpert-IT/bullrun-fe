@@ -88,7 +88,7 @@ export const Footer = () => {
       </Box>
       <Flex justify={"center"} py={2}>
         <Text fontSize={{ base: "sm", sm: "md" }}>
-          &#169; {new Date().getFullYear()} Falcon Defi, All right reserved
+          &#169; {new Date().getFullYear()} BullRun, All right reserved
         </Text>
       </Flex>
     </Box>
