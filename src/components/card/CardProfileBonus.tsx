@@ -61,58 +61,11 @@ export const CardProfileBonus = () => {
   return (
     <Stack>
       <Stack gap={"3"} w={"full"}>
-        <WidgetProfileBalance bg="#0B5454" px="1rem" rounded="xl">
-          <HStack w={"full"} justifyContent={"space-between"}>
-            <Text>{t("common.PersonalNft")}</Text>
-            {/* <Text textAlign={"end"}>
-              {`${prettyBn(personalBuy, 18)} ${fld.data?.symbol}`}
-            </Text> */}
-            <Text textAlign={"end"}>1000 FLD</Text>
-          </HStack>
-        </WidgetProfileBalance>
-        <WidgetProfileBalance bg="#0B5454" px="1rem" rounded="xl">
+        <WidgetProfileBalance bg="#F16623" p="1rem" rounded="xl">
           <HStack w={"full"} justifyContent={"space-between"}>
             <Text>{t("common.TotalNetworkMember")}</Text>
             {/* <Text textAlign={"end"}>{`${account?.totalDownline} Member`}</Text> */}
             <Text textAlign={"end"}>{`20 Member`}</Text>
-          </HStack>
-        </WidgetProfileBalance>
-        <WidgetProfileBalance bg="#0B5454" px="1rem" rounded="xl">
-          <HStack w={"full"} justifyContent={"space-between"}>
-            <Stack>
-              <Text>{t("common.sponsor")}</Text>
-              <Text>
-                {/* {`${sponsorReward.data && fromBn(sponsorReward.data, 18)} ${
-                  fld.data?.symbol
-                }`} */}
-                9000 FLD
-              </Text>
-            </Stack>
-            <WidgetProfileBtn
-            // onClick={handleClaimSponsorReward}
-            // isLoading={claimSponsorRewardAsync.isLoading}
-            >
-              {t("common.claim")}
-            </WidgetProfileBtn>
-          </HStack>
-        </WidgetProfileBalance>
-        <WidgetProfileBalance bg="#0B5454" px="1rem" rounded="xl">
-          <HStack w={"full"} justifyContent={"space-between"}>
-            <Stack>
-              <Text>{t("common.matchingBonus")}</Text>
-              <Text>
-                {/* {`${matchingReward.data && fromBn(matchingReward.data, 18)} ${
-                  fld.data?.symbol
-                }`} */}
-                5000 USDT
-              </Text>
-            </Stack>
-            <WidgetProfileBtn
-            // onClick={handleClaimMatchingReward}
-            // isLoading={claimMatchingRewardAsync.isLoading}
-            >
-              {t("common.claim")}
-            </WidgetProfileBtn>
           </HStack>
         </WidgetProfileBalance>
       </Stack>

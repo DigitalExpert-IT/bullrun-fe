@@ -1,8 +1,3 @@
-// import {
-//   CardProfileRankV2,
-//   CardProfileAddress,
-//   CardProfileBalanceV2,
-// } from "components/Card";
 import { t } from "i18next";
 
 import { Heading, Stack, Flex, Box } from "@chakra-ui/react";
@@ -40,13 +35,7 @@ export const SectionProfile = () => {
         p="2"
         px={{ base: "0", md: "3rem", xl: "7rem" }}
       >
-        <Box
-          flex={0}
-          // bgGradient="linear(130deg, #F96C6C, #F3B79B)"
-          bg="#F16623"
-          rounded="2.5rem"
-          p="1"
-        >
+        <Box flex={0} bg="#F16623" rounded="2.5rem" p="1">
           <Stack
             h="100%"
             w="100%"
@@ -55,23 +44,16 @@ export const SectionProfile = () => {
             justify="space-between"
             background="#091E2A"
           >
-            <Box minW={{ base: "100%", md: "35%" }}>
+            {/* <Box minW={{ base: "100%", md: "35%" }}>
               <CardProfileRank />
-            </Box>
+            </Box> */}
             <Box w="100%">
               <CardProfileAddress />
             </Box>
           </Stack>
         </Box>
 
-        <Stack
-          // bgGradient="linear(130deg, #F96C6C, #F3B79B)"
-          bg="#F16623"
-          rounded="2.5rem"
-          w="100%"
-          flex={2}
-          p="1"
-        >
+        <Stack bg="#F16623" rounded="2.5rem" w="100%" flex={2} p="1">
           <CardProfileBalance />
         </Stack>
       </Flex>

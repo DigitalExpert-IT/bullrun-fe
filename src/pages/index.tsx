@@ -1,8 +1,11 @@
-import { Inter } from "next/font/google";
 import { LayoutMain } from "components";
-import { SectionHeader, SectionNFTList, SectionProfile } from "components/home";
-
-const inter = Inter({ subsets: ["latin"] });
+import {
+  SectionHeader,
+  SectionNFTList,
+  SectionOwnedNFT,
+  SectionProfile,
+} from "components/home";
+import { TableSystem } from "components/table";
 
 export default function Home() {
   return (
@@ -10,6 +13,8 @@ export default function Home() {
       <SectionHeader />
       <SectionNFTList />
       <SectionProfile />
+      <SectionOwnedNFT />
+      <TableSystem />
     </LayoutMain>
   );
 }

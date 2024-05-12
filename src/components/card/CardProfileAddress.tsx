@@ -30,17 +30,6 @@ export const CardProfileAddress = () => {
 
   return (
     <CardProfile placeContent="left" align="left">
-      <Box
-        w="100%"
-        px="2"
-        display="flex"
-        flexDirection="column"
-        textAlign="left"
-      >
-        <Heading size="lg">Team Performance</Heading>
-        {/* <Text fontSize="lg">{prettyBn(accountMap.data?.omzet, 18)}</Text> */}
-        <Text fontSize="lg">20</Text>
-      </Box>
       <VStack gap={"8"} mt="3rem">
         <WidgetProfileBalance w="full" justifyContent="center">
           <Center py={"2"}>
@@ -63,6 +52,7 @@ export const CardProfileAddress = () => {
                 <IoCopyOutline />
               </Text>
               {/* {contractFld?.toUpperCase()} */}
+              0x8Dc0639f388BB7CCbB4d3c07527195b0DFf21781
             </CopiableText>
           </Center>
         </WidgetProfileBalance>
@@ -86,7 +76,8 @@ export const CardProfileAddress = () => {
                 {t("common.referralLink")}
                 <IoCopyOutline />
               </Text>
-              {address?.toUpperCase()}
+              {/* {address?.toUpperCase()} */}
+              0x8Dc0639f388BB7CCbB4d3c07527195b0DFf21781
             </CopiableText>
           </Center>
         </WidgetProfileBalance>
@@ -109,7 +100,7 @@ export const CardProfileAddress = () => {
                 {t("common.myReferrer")}
               </Text>
               {/* {accountMap.data?.referral.toUpperCase()} */}
-              0x1293810923810293820974019283
+              0x8Dc0639f388BB7CCbB4d3c07527195b0DFf21781
             </Text>
           </Center>
         </WidgetProfileBalance>

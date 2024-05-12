@@ -22,6 +22,7 @@ import {
   Box,
   Button,
   Link,
+  Heading,
 } from "@chakra-ui/react";
 // import { useHasRoleAdmin } from "hooks/admin/useHasRoleAdmin";
 import { useConnectionStatus, useAddress } from "@thirdweb-dev/react";
@@ -32,7 +33,7 @@ interface MobileDrawerProps {
   data: INavigation[];
 }
 
-export const DrawerMobileNav: React.FC<MobileDrawerProps> = (props) => {
+export const DrawerMobileNav: React.FC<MobileDrawerProps> = props => {
   const { isOpen, onClose, data } = props;
   const { isOpen: openChild, onToggle } = useDisclosure();
   const { t } = useTranslation();
@@ -43,10 +44,11 @@ export const DrawerMobileNav: React.FC<MobileDrawerProps> = (props) => {
   return (
     <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
       <DrawerOverlay />
-      <DrawerContent bgColor="#0B4649">
+      <DrawerContent bgColor="#F16623">
         <DrawerCloseButton />
         <DrawerHeader justifyContent="center" display="flex">
-          <AspectRatio ratio={9 / 3} minWidth="190">
+          <Heading fontSize="6xl">BullRun</Heading>
+          {/* <AspectRatio ratio={9 / 3} minWidth="190">
             <Image
               src={"/assets/logo/folkvangr-logo2.png"}
               alt="logo-image"
@@ -56,7 +58,7 @@ export const DrawerMobileNav: React.FC<MobileDrawerProps> = (props) => {
               sizes="(max-width: 768px) 100vw,"
               fill
             />
-          </AspectRatio>
+          </AspectRatio> */}
         </DrawerHeader>
         <DrawerBody p="0">
           <Stack spacing="5">
@@ -130,20 +132,6 @@ export const DrawerMobileNav: React.FC<MobileDrawerProps> = (props) => {
           >
             <Button>Connect Wallet</Button>
             {/* <ButtonConnectWallet direction="column" /> */}
-          </Stack>
-          <Stack align={"center"}>
-            <AspectRatio ratio={1} minWidth="190">
-              <Image
-                alt="Falcon Defi"
-                src="/assets/logo/folkvangr-logo.svg"
-                style={{
-                  objectFit: "contain",
-                  opacity: 0.1,
-                }}
-                sizes="(max-width: 768px) 100vw,"
-                fill
-              />
-            </AspectRatio>
           </Stack>
         </DrawerBody>
       </DrawerContent>

@@ -33,7 +33,7 @@ export const CardProfileBalance = () => {
 
   return (
     <Stack
-      bg="#091E2A"
+      bg="gray.900"
       rounded="2.5rem"
       p={{ base: "5", lg: "10" }}
       height="full"
@@ -43,18 +43,6 @@ export const CardProfileBalance = () => {
         <Trans i18nKey="common.balance" />
       </Text>
       <Stack gap={"2"} w={"full"}>
-        <WidgetProfileBalance
-          bg="transparent"
-          border="1px solid white"
-          px="1rem"
-          rounded="xl"
-        >
-          <Image src="/assets/logo/folkvangr-mini.png" alt="Logo FLD" w={10} />
-          <HStack w={"full"} justifyContent={{ base: "end", xs: "center" }}>
-            {/* <Text>{prettyBn(fldBalance, 18)} FLD</Text> */}
-            <Text>1000</Text>
-          </HStack>
-        </WidgetProfileBalance>
         <WidgetProfileBalance
           bg="transparent"
           border="1px solid white"
@@ -71,7 +59,7 @@ export const CardProfileBalance = () => {
             {/* <Text>
               {prettyBn(balance.data?.value, 18)} {balance.data?.symbol}
             </Text> */}
-            <Text>1000 FLD</Text>
+            <Text>1000 BNB</Text>
           </HStack>
         </WidgetProfileBalance>
         <WidgetProfileBalance
