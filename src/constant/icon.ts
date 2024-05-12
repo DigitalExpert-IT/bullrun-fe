@@ -6,6 +6,7 @@ import {
   FaYoutube,
   FaTelegram,
 } from "react-icons/fa";
+
 export const ICONS_FOOTER = [
   {
     href: "#",
