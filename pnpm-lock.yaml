@@ -17,6 +17,9 @@ importers:
       '@chakra-ui/react':
         specifier: ^2.4.2
         version: 2.8.2(@emotion/react@11.11.4(@types/react@18.0.25)(react@18.2.0))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.0.25)(react@18.2.0))(@types/react@18.0.25)(react@18.2.0))(@types/react@18.0.25)(framer-motion@7.10.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@chakra-ui/shared-utils':
+        specifier: ^2.0.4
+        version: 2.0.4
       '@chakra-ui/styled-system':
         specifier: ^2.5.0
         version: 2.9.2
@@ -569,6 +572,9 @@ packages:
     peerDependencies:
       '@chakra-ui/system': '>=2.0.0'
       react: '>=18'
+
+  '@chakra-ui/shared-utils@2.0.4':
+    resolution: {integrity: sha512-JGWr+BBj3PXGZQ2gxbKSD1wYjESbYsZjkCeE2nevyVk4rN3amV1wQzCnBAhsuJktMaZD6KC/lteo9ou9QUDzpA==}
 
   '@chakra-ui/shared-utils@2.0.5':
     resolution: {integrity: sha512-4/Wur0FqDov7Y0nCXl7HbHzCg4aq86h+SXdoUeuCMD3dSj7dpsVnStLYhng1vxvlbUnLpdF4oz5Myt3i/a7N3Q==}
@@ -6400,6 +6406,8 @@ snapshots:
       '@chakra-ui/shared-utils': 2.0.5
       '@chakra-ui/system': 2.6.2(@emotion/react@11.11.4(@types/react@18.0.25)(react@18.2.0))(@emotion/styled@11.11.5(@emotion/react@11.11.4(@types/react@18.0.25)(react@18.2.0))(@types/react@18.0.25)(react@18.2.0))(react@18.2.0)
       react: 18.2.0
+
+  '@chakra-ui/shared-utils@2.0.4': {}
 
   '@chakra-ui/shared-utils@2.0.5': {}
 
