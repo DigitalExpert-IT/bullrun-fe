@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 
 interface CardListNFTProps {
   title: string;
-  price: string;
+  price: number;
   id: string;
 }
 
@@ -29,6 +29,7 @@ export const CardListNFT: React.FC<CardListNFTProps> = props => {
   // const handleBuyFLD = () => {
   //   buyWithFLD(props.id, 1);
   // };
+
   return (
     <Box textAlign="center" rounded="xl" overflow="hidden">
       <Heading textTransform="uppercase" py="1">
@@ -59,7 +60,7 @@ export const CardListNFT: React.FC<CardListNFTProps> = props => {
                   p="1px"
                 >
                   <Box w="100%" bg="black" rounded="lg" p="2">
-                    <Text>15 USDT</Text>
+                    <Text>{props.price} USDT</Text>
                   </Box>
                 </Box>
                 <Button
