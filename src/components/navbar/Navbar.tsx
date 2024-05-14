@@ -15,6 +15,7 @@ import {
   Button,
   Heading,
 } from "@chakra-ui/react";
+import { ButtonConnectWallet } from "components/button";
 
 export const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -91,8 +92,7 @@ export const Navbar = () => {
             justify="right"
             display={{ base: "none", md: "none", lg: "flex" }}
           >
-            <Button>ConnectWallet</Button>
-            {/* <ButtonConnectWallet /> */}
+            <ButtonConnectWallet />
           </Flex>
         </Flex>
       </Container>
