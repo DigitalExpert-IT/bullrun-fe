@@ -15,12 +15,12 @@ import {
 import { Trans, useTranslation } from "react-i18next";
 import { AiOutlineArrowDown } from "react-icons/ai";
 import { LazyVideo } from "components/LazyVideo";
-// import { useAccountMap } from "hooks/valhalla";
-// import { ButtonConnectWallet, ButtonConnectWrapper } from "components/Button";
+import { ButtonConnectWallet, ButtonConnectWrapper } from "components/button";
+import { useAccountMap } from "hooks";
 
 export const SectionHeader = () => {
   const { t } = useTranslation();
-  // const accountMap = useAccountMap();
+  const accountMap = useAccountMap();
 
   return (
     <Flex
@@ -95,8 +95,7 @@ export const SectionHeader = () => {
           mt="6"
           spacing={{ base: "2", sm: "4" }}
         >
-          <Button>Connect Wallet</Button>
-          {/* {accountMap?.data?.isRegistered === false ? (
+          {accountMap?.data?.status === false ? (
             <ButtonConnectWrapper>
               <Link href="/register">
                 <Button
@@ -109,7 +108,7 @@ export const SectionHeader = () => {
                 </Button>
               </Link>
             </ButtonConnectWrapper>
-          ) : null} */}
+          ) : null}
         </HStack>
       </Stack>
       <VStack
