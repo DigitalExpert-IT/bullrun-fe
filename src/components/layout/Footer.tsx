@@ -21,7 +21,7 @@ export const Footer = () => {
     <Box as="footer" w="full" position={"relative"} bg="black">
       <Box bg="#F16623" w="full" h="full" position="static" overflow={"hidden"}>
         {/* <Image
-          src="/assets/pattern.png"
+          src="/assets/logo/bullrun-logo.png"
           alt="background-footer"
           loading="lazy"
           placeholder="blur"
@@ -59,8 +59,7 @@ export const Footer = () => {
               justifyContent={{ base: "center", md: "start" }}
               w={{ base: "full", md: 0 }}
             >
-              <Heading>BullRun</Heading>
-              {/* <AspectRatio ratio={{ base: 2 / 0.5, md: 1 }} minWidth="250">
+              <AspectRatio ratio={{ base: 2 / 0.5, md: 1 }} minWidth="250">
                 <Image
                   style={{
                     objectFit: "contain",
@@ -68,11 +67,11 @@ export const Footer = () => {
                   sizes="(max-width: 768px) 100vw,"
                   fill
                   loading="lazy"
-                  src={"/assets/logo/folkvangr-logo3.png"}
+                  src={"/assets/logo/bullrun-logo.png"}
                   alt="logo-image"
                   priority={false}
                 />
-              </AspectRatio> */}
+              </AspectRatio>
             </Box>
           </Flex>
         </Container>

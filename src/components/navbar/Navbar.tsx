@@ -64,7 +64,24 @@ export const Navbar = () => {
               onClose={onClose}
             />
             <Link href="/">
-              <Heading fontWeight="extrabold">BullRun</Heading>
+              <AspectRatio
+                w={{ base: 200, lg: 250 }}
+                ratio={16 / 5}
+                my={2}
+                mx={{ sm: "auto" }}
+                pos={{ base: "absolute", lg: "sticky" }}
+                right={"0"}
+                left={"0"}
+                top={"-2"}
+              >
+                <Image
+                  src="/assets/logo/bullrun-logo.png"
+                  alt="logo-image"
+                  width={500}
+                  loading="lazy"
+                  height={500}
+                />
+              </AspectRatio>
             </Link>
             <IconButton
               variant="ghost"
