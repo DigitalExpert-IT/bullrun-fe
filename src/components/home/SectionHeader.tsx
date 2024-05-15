@@ -15,12 +15,12 @@ import {
 import { Trans, useTranslation } from "react-i18next";
 import { AiOutlineArrowDown } from "react-icons/ai";
 import { LazyVideo } from "components/LazyVideo";
-// import { useAccountMap } from "hooks/valhalla";
-// import { ButtonConnectWallet, ButtonConnectWrapper } from "components/Button";
+import { ButtonConnectWallet, ButtonConnectWrapper } from "components/button";
+import { useAccountMap } from "hooks";
 
 export const SectionHeader = () => {
   const { t } = useTranslation();
-  // const accountMap = useAccountMap();
+  const accountMap = useAccountMap();
 
   return (
     <Flex
@@ -32,15 +32,15 @@ export const SectionHeader = () => {
       // bgColor="black"
       // bgGradient="linear( to-t, #0A1424 9.97%, #0A1022 12.48%, #092930 124.52%)"
     >
-      {/* <Image
-        src="https://ik.imagekit.io/msxxxaegj/folkvangr/patternfolk-1.png?updatedAt=1695013533247"
+      <Image
+        src="https://ik.imagekit.io/msxxxaegj/BullrunPass/head-pattern.png?updatedAt=1715787786437"
         alt="img-header"
         loading="lazy"
         sizes="100vw"
         style={{ objectFit: "cover" }}
         z-index="0"
         fill
-      /> */}
+      />
       <Box
         display={{
           base: "none",
@@ -51,9 +51,11 @@ export const SectionHeader = () => {
         overflow="hidden"
       >
         <AspectRatio w={{ base: "none", md: "md", xl: " xl" }} ratio={1}>
-          <LazyVideo
-            src="https://ik.imagekit.io/msxxxaegj/folkvangr/480bos.mp4?updatedAt=1695574850436  "
-            objectFit="cover"
+          <Image
+            src="https://ik.imagekit.io/msxxxaegj/BullrunPass/head-image.png?updatedAt=1715787898790"
+            alt="head-image"
+            style={{ objectFit: "contain" }}
+            fill
           />
         </AspectRatio>
       </Box>
@@ -95,8 +97,7 @@ export const SectionHeader = () => {
           mt="6"
           spacing={{ base: "2", sm: "4" }}
         >
-          <Button>Connect Wallet</Button>
-          {/* {accountMap?.data?.isRegistered === false ? (
+          {accountMap?.data?.status === false ? (
             <ButtonConnectWrapper>
               <Link href="/register">
                 <Button
@@ -109,7 +110,7 @@ export const SectionHeader = () => {
                 </Button>
               </Link>
             </ButtonConnectWrapper>
-          ) : null} */}
+          ) : null}
         </HStack>
       </Stack>
       <VStack

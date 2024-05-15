@@ -15,6 +15,7 @@ import {
   Button,
   Heading,
 } from "@chakra-ui/react";
+import { ButtonConnectWallet } from "components/button";
 
 export const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -63,7 +64,24 @@ export const Navbar = () => {
               onClose={onClose}
             />
             <Link href="/">
-              <Heading fontWeight="extrabold">BullRun</Heading>
+              <AspectRatio
+                w={{ base: 200, lg: 250 }}
+                ratio={16 / 5}
+                my={2}
+                mx={{ sm: "auto" }}
+                pos={{ base: "absolute", lg: "sticky" }}
+                right={"0"}
+                left={"0"}
+                top={"-2"}
+              >
+                <Image
+                  src="/assets/logo/bullrun-logo.png"
+                  alt="logo-image"
+                  width={500}
+                  loading="lazy"
+                  height={500}
+                />
+              </AspectRatio>
             </Link>
             <IconButton
               variant="ghost"
@@ -74,7 +92,7 @@ export const Navbar = () => {
               onClick={onOpen}
             />
           </Stack>
-          <Stack
+          {/* <Stack
             direction="row"
             spacing="5"
             display={{ base: "none", md: "none", lg: "flex" }}
@@ -83,7 +101,7 @@ export const Navbar = () => {
             flex={1}
           >
             <NavbarMenu data={NAVIGATION} />
-          </Stack>
+          </Stack> */}
           <Flex
             alignItems="center"
             gap={2}
@@ -91,8 +109,7 @@ export const Navbar = () => {
             justify="right"
             display={{ base: "none", md: "none", lg: "flex" }}
           >
-            <Button>ConnectWallet</Button>
-            {/* <ButtonConnectWallet /> */}
+            <ButtonConnectWallet />
           </Flex>
         </Flex>
       </Container>

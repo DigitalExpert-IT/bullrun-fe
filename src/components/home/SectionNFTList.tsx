@@ -7,13 +7,12 @@ import {
   WrapItem,
 } from "@chakra-ui/react";
 import { CardListNFT } from "components/card";
-import { NFTCARD } from "constant/dummy";
-
-// import { useCardList } from "hooks/useCardList";
+import { useNftList } from "hooks";
+import { prettyBn } from "utils";
 // import { prettyBn } from "utils";
 
 export const SectionNFTList = () => {
-  // const { data, isLoading } = useCardList();
+  const { data, isLoading } = useNftList();
 
   return (
     <>
@@ -45,11 +44,11 @@ export const SectionNFTList = () => {
         </Heading>
       </Box>
       <Container maxW={"container.xxl"}>
-        {/* {isLoading ? (
+        {isLoading ? (
           <Box display="flex" justifyContent="center">
             <Spinner size="xl" />
           </Box>
-        ) : null} */}
+        ) : null}
 
         <Wrap
           justifyContent="space-between"
@@ -57,9 +56,13 @@ export const SectionNFTList = () => {
           align="center"
           justify="center"
         >
-          {NFTCARD.map((e, idx) => (
+          {data.map((e, idx) => (
             <WrapItem w={{ md: "25%", sm: "45%", base: "100%" }} key={idx}>
-              <CardListNFT title={e.title} price={e.price} id={e.id} />
+              <CardListNFT
+                title={`bullrun ${e.id.add(1)}`}
+                price={prettyBn(e.price, 18)}
+                id={Number(e.id)}
+              />
             </WrapItem>
           ))}
         </Wrap>

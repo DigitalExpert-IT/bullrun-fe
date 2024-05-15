@@ -1,34 +1,24 @@
 import { Box, Heading, Stack, Text, Button, Image } from "@chakra-ui/react";
 import { CARD_IMAGE_MAP } from "constant/image";
-// import { useAsyncCall } from "hooks";
-// import { useCardList } from "hooks/useCardList";
+import { useNftList, useAsyncCall } from "hooks";
 import { useTranslation } from "react-i18next";
 
 interface CardListNFTProps {
   title: string;
   price: string;
-  id: string;
+  id: number;
 }
 
 export const CardListNFT: React.FC<CardListNFTProps> = props => {
   const { t } = useTranslation();
-  // const { buy } = useCardList();
-  // const { exec: buyWithUSDT, isLoading: usdtLoading } = useAsyncCall(
-  //   buy,
-  //   t("common.succesBuyNft")
-  // );
-  // const { exec: buyWithFLD, isLoading: fldLoading } = useAsyncCall(
-  //   buy,
-  //   t("common.succesBuyNft")
-  // );
+  const { buy } = useNftList();
 
-  // const handleBuyUSDT = () => {
-  //   buyWithUSDT(props.id, 0);
-  // };
+  const { exec, isLoading } = useAsyncCall(buy, t("common.succesBuyNft"));
 
-  // const handleBuyFLD = () => {
-  //   buyWithFLD(props.id, 1);
-  // };
+  const handleBuy = () => {
+    exec(props.id);
+  };
+
   return (
     <Box textAlign="center" rounded="xl" overflow="hidden">
       <Heading textTransform="uppercase" py="1">
@@ -44,7 +34,7 @@ export const CardListNFT: React.FC<CardListNFTProps> = props => {
           <Stack>
             <Box rounded="xl" overflow="hidden">
               <Image
-                src={CARD_IMAGE_MAP[props.id as "0"]}
+                src={CARD_IMAGE_MAP[props.id as 0]}
                 alt={`NFT-${props.id}`}
                 objectFit="cover"
               />
@@ -59,7 +49,7 @@ export const CardListNFT: React.FC<CardListNFTProps> = props => {
                   p="1px"
                 >
                   <Box w="100%" bg="black" rounded="lg" p="2">
-                    <Text>15 USDT</Text>
+                    <Text>{props.price} USDT</Text>
                   </Box>
                 </Box>
                 <Button
@@ -67,8 +57,8 @@ export const CardListNFT: React.FC<CardListNFTProps> = props => {
                   rounded="lg"
                   background="#F16623"
                   _hover={{ background: "#85350e" }}
-                  // onClick={() => handleBuyFLD()}
-                  // isLoading={fldLoading}
+                  onClick={() => handleBuy()}
+                  isLoading={isLoading}
                 >
                   Buy NFT
                 </Button>

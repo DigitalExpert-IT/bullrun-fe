@@ -38,27 +38,23 @@ export const NFTCARD = [
 
 export const RANKSYSTEM: Array<IRankSystem> = [
   {
-    share: "Contract Pool",
-    percent: "35%",
-  },
-  {
-    share: "Bullrun builders",
-    percent: "30%",
+    share: "Referral",
+    percent: "10%",
   },
   {
     share: "Marketing",
-    percent: "10%",
+    percent: "30%",
   },
   {
-    share: "Reserve",
-    percent: "5%",
+    share: "Address Bridge",
+    percent: "30%",
   },
   {
-    share: "Development",
-    percent: "10%",
+    share: "Swap to Shiba Liquidity",
+    percent: "15%",
   },
   {
-    share: "NFT Max Claim",
-    percent: "500%",
+    share: "Swap to XRP Liquidity",
+    percent: "15%",
   },
 ];
