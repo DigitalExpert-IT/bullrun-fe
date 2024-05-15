@@ -7,9 +7,8 @@ import {
   WrapItem,
 } from "@chakra-ui/react";
 import { CardListNFT } from "components/card";
-import { NFTCARD } from "constant/dummy";
 import { useNftList } from "hooks";
-// import { useCardList } from "hooks/useCardList";
+import { prettyBn } from "utils";
 // import { prettyBn } from "utils";
 
 export const SectionNFTList = () => {
@@ -61,8 +60,8 @@ export const SectionNFTList = () => {
             <WrapItem w={{ md: "25%", sm: "45%", base: "100%" }} key={idx}>
               <CardListNFT
                 title={`bullrun ${e.id.add(1)}`}
-                price={e.price}
-                id={e.id.toString()}
+                price={prettyBn(e.price, 18)}
+                id={Number(e.id)}
               />
             </WrapItem>
           ))}
