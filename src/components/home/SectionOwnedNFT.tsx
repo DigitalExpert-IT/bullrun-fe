@@ -14,10 +14,8 @@ import { CardOwnedNFT } from "components/card";
 import { useNftOwned } from "hooks";
 
 export const SectionOwnedNFT = () => {
-  const { data, coins, isLoading } = useNftOwned();
+  const { data, isLoading } = useNftOwned();
   const { t } = useTranslation();
-
-  console.log(data);
 
   return (
     <Box mt="40" pos="relative">
@@ -58,7 +56,7 @@ export const SectionOwnedNFT = () => {
               </Box>
             ) : (
               data?.map((item: any) => (
-                <WrapItem key={item.id}>
+                <WrapItem key={item.metadata.id}>
                   <CardOwnedNFT id={item.metadata.id} />
                 </WrapItem>
               ))

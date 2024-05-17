@@ -1,24 +1,11 @@
-import React, { useLayoutEffect, useRef } from "react";
-// import { useAsyncCall } from "hooks";
-// import { OwnedNftType } from "hooks/useOwnedNFTList";
-import { useTranslation } from "react-i18next";
-import {
-  Stack,
-  Box,
-  AspectRatio,
-  Text,
-  Button,
-  Heading,
-  Image,
-} from "@chakra-ui/react";
-import { differenceInSeconds } from "date-fns";
-import { useContractRead, useContractWrite } from "@thirdweb-dev/react";
-import { useNFTBullRunContract } from "hooks";
-import { fromBn } from "evm-bn";
+import React from "react";
+import { prettyBn } from "utils";
 import { TOKEN_ICON } from "constant/icon";
-// import { useNFTFolkContract } from "hooks/useNFTFolkContract";
-// import { BigNumber } from "";
-// import { fromBn } from "evm-bn";
+import { TokenList } from "./CardTokenList";
+import { useNFTBullRunContract } from "hooks";
+import { useTranslation } from "react-i18next";
+import { useContractRead } from "@thirdweb-dev/react";
+import { Stack, Box, Text, Button, Image, Spinner } from "@chakra-ui/react";
 
 export const CardOwnedNFT: React.FC<{ id: string }> = ({ id }) => {
   const nft = useNFTBullRunContract();
@@ -27,44 +14,7 @@ export const CardOwnedNFT: React.FC<{ id: string }> = ({ id }) => {
     "getCoinInvestDetail",
     [id]
   );
-  // const { id, mintingPrice, cardId, percentage, tokenUri, lastGrindedAt } =
-  //   props;
   const { t } = useTranslation();
-  // const nft = useNFTFolkContract();
-  // const farm = useContractWrite(nft.contract, "grindingCard");
-  // const farmAsync = useAsyncCall(farm.mutateAsync);
-  const intervalRef = useRef<NodeJS.Timer>();
-  const farmTextRef = useRef<HTMLParagraphElement>(null);
-  // const lastFarmedAtRef = useRef<BigNumber>(lastGrindedAt);
-
-  // const handleFarm = async () => {
-  //   const farm = await farmAsync.exec({ args: [id] });
-  //   const isSuccesFarm = farm.receipt?.status === 1;
-  //   if (isSuccesFarm) {
-  //     lastFarmedAtRef.current = BigNumber.from(
-  //       Math.round(new Date().getTime() / 1000)
-  //     );
-  //   }
-  // };
-
-  // useLayoutEffect(() => {
-  //   intervalRef.current = setInterval(() => {
-  //     if (!farmTextRef.current) return;
-
-  //     const farmPerDay = mintingPrice.mul(percentage).div(1000);
-  //     const farmPerSec = farmPerDay.div(86400);
-  //     const secDiff = differenceInSeconds(
-  //       new Date(),
-  //       new Date(lastFarmedAtRef.current.toNumber() * 1000)
-  //     );
-  //     const farmValue = farmPerSec.mul(secDiff);
-  //     farmTextRef.current.innerText = fromBn(farmValue, 18);
-  //   }, 1000);
-
-  //   return () => {
-  //     clearInterval(intervalRef.current);
-  //   };
-  // }, []);
 
   return (
     <Box>
@@ -81,11 +31,6 @@ export const CardOwnedNFT: React.FC<{ id: string }> = ({ id }) => {
           py={5}
         >
           <Box rounded="xl" overflow="hidden" m="2">
-            {/* <AspectRatio w={{ base: "2xs", md: "xs" }} ratio={1}>
-              <Box as="video" autoPlay loop muted rounded="xl">
-                <source src={tokenUri} type="video/mp4" />
-              </Box>
-            </AspectRatio> */}
             <Image
               src={
                 "https://ik.imagekit.io/msxxxaegj/BullrunPass/nft1.png?updatedAt=1715171218991"
@@ -94,24 +39,32 @@ export const CardOwnedNFT: React.FC<{ id: string }> = ({ id }) => {
               objectFit="cover"
             />
           </Box>
-          <Stack my="5" align="center">
-            <Text fontWeight="bold" fontSize="16px">
-              239.9 USDT
-            </Text>
-            {data.map((item, idx) => (
-              <Box key={idx}>
-                <Text>{item.contractAddress}</Text>
-                <Text>{fromBn(item.amount)}</Text>
-                <Image
-                  src={
-                    TOKEN_ICON[
-                      item.contractAddress as "0x2859e4544C4bB03966803b044A93563Bd2D0DD4D"
-                    ].url
-                  }
-                  alt={item.contractAddress}
-                />
+          <Stack my="5">
+            {isLoading ? (
+              <Box display="flex" justifyContent="center" minH="55vh">
+                <Spinner size="xl" />
               </Box>
-            ))}
+            ) : data?.length !== 0 ? (
+              data?.map((item: any, idx: number) => (
+                <Box key={idx}>
+                  <TokenList
+                    name={
+                      TOKEN_ICON[
+                        item.contractAddress as "0x2859e4544C4bB03966803b044A93563Bd2D0DD4D"
+                      ].name
+                    }
+                    image={
+                      TOKEN_ICON[
+                        item.contractAddress as "0x2859e4544C4bB03966803b044A93563Bd2D0DD4D"
+                      ].url
+                    }
+                    amount={prettyBn(item.amount, 18)}
+                  />
+                </Box>
+              ))
+            ) : (
+              <Text>Data not found</Text>
+            )}
           </Stack>
           <Button
             w="full"
@@ -123,9 +76,6 @@ export const CardOwnedNFT: React.FC<{ id: string }> = ({ id }) => {
             // onClick={handleFarm}
             // isLoading={farmAsync.isLoading}
           >
-            <Text ref={farmTextRef} mr="1" as="span">
-              0
-            </Text>
             Claim
           </Button>
         </Box>
