@@ -23,15 +23,15 @@ type FormType = {
 };
 
 export const FormRegister = () => {
-  const folkvangr = useBullRunContract();
+  const bullrun = useBullRunContract();
   const address = useAddress() ?? ZERO_ADDRESS;
   const { t } = useTranslation();
-  const folkvangrRegister = useContractWrite(folkvangr.contract, "register");
+  const bullrunRegis = useContractWrite(bullrun.contract, "register");
 
   const register = useAsyncCall(
-    folkvangrRegister.mutateAsync,
+    bullrunRegis.mutateAsync,
     t("form.message.registrationSuccess"),
-    () => router.replace("/profile")
+    () => router.replace("/")
   );
   const { control, setValue, handleSubmit } = useForm<FormType>();
   const disclaimerModal = useModal(ModalDiscalimer);
