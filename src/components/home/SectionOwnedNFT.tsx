@@ -10,22 +10,12 @@ import {
   Spinner,
 } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
-// import { useOwnedNFTList } from "hooks/useOwnedNFTList";
 import { CardOwnedNFT } from "components/card";
-
-const nftList = [
-  {
-    id: 0,
-  },
-  // {
-  //   id: 1,
-  // },
-];
+import { useNftOwned } from "hooks";
 
 export const SectionOwnedNFT = () => {
-  // const { data: nftList, isLoading } = useOwnedNFTList();
+  const { data, isLoading } = useNftOwned();
   const { t } = useTranslation();
-  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <Box mt="40" pos="relative">
@@ -54,7 +44,7 @@ export const SectionOwnedNFT = () => {
               <Box display="flex" justifyContent="center" minH="55vh">
                 <Spinner size="xl" />
               </Box>
-            ) : nftList.length === 0 ? (
+            ) : data?.length === 0 ? (
               <Box
                 textAlign="center"
                 display="flex"
@@ -65,9 +55,9 @@ export const SectionOwnedNFT = () => {
                 <Heading>{t("error.notOwnedNft")}</Heading>
               </Box>
             ) : (
-              nftList.map((item: any) => (
-                <WrapItem key={item.id}>
-                  <CardOwnedNFT {...item} />
+              data?.map((item: any) => (
+                <WrapItem key={item.metadata.id}>
+                  <CardOwnedNFT id={item.metadata.id} />
                 </WrapItem>
               ))
             )}

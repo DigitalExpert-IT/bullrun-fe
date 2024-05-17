@@ -7,6 +7,7 @@ import type { AppProps } from "next/app";
 import { getActiveChain } from "lib/chain";
 import { useBullRunContract } from "hooks";
 import { useTranslation } from "react-i18next";
+import NiceModal from "@ebay/nice-modal-react";
 import {
   ChakraProvider,
   useColorMode,
@@ -41,7 +42,9 @@ export default function App(props: AppProps) {
       activeChain={targetChain}
     >
       <ChakraProvider theme={theme}>
-        <Main {...props} />
+        <NiceModal.Provider>
+          <Main {...props} />
+        </NiceModal.Provider>
       </ChakraProvider>
     </ThirdwebProvider>
   );

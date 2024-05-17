@@ -44,9 +44,6 @@ export const SectionProfile = () => {
             justify="space-between"
             background="#091E2A"
           >
-            {/* <Box minW={{ base: "100%", md: "35%" }}>
-              <CardProfileRank />
-            </Box> */}
             <Box w="100%">
               <CardProfileAddress />
             </Box>
