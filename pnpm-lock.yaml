@@ -29,6 +29,9 @@ importers:
       '@chakra-ui/theme-tools':
         specifier: ^2.0.14
         version: 2.1.2(@chakra-ui/styled-system@2.9.2)
+      '@ebay/nice-modal-react':
+        specifier: ^1.2.13
+        version: 1.2.13(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@emotion/react':
         specifier: ^11.11.1
         version: 11.11.4(@types/react@18.0.25)(react@18.2.0)
@@ -131,6 +134,9 @@ importers:
       react-hook-form:
         specifier: ^7.41.0
         version: 7.51.4(react@18.2.0)
+      react-hooks-form:
+        specifier: ^2.0.1
+        version: 2.0.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react-i18next:
         specifier: ^12.0.0
         version: 12.3.1(i18next@22.5.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -714,6 +720,12 @@ packages:
   '@cspotcode/source-map-support@0.8.1':
     resolution: {integrity: sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==}
     engines: {node: '>=12'}
+
+  '@ebay/nice-modal-react@1.2.13':
+    resolution: {integrity: sha512-jx8xIWe/Up4tpNuM02M+rbnLoxdngTGk3Y8LjJsLGXXcSoKd/+eZStZcAlIO/jwxyz/bhPZnpqPJZWAmhOofuA==}
+    peerDependencies:
+      react: '>16.8.0'
+      react-dom: '>16.8.0'
 
   '@emotion/babel-plugin@11.11.0':
     resolution: {integrity: sha512-m4HEDZleaaCH+XgDDsPF15Ht6wTLsgDTeR3WYj9Q/k76JtWhrJjcP4+/XlG8LGT/Rol9qUfOIztXeA84ATpqPQ==}
@@ -5135,6 +5147,9 @@ packages:
     resolution: {integrity: sha512-cdGef/drWFoydD1JsMzuFf8100nZl+GT+yacc2bEced5f9Rjk4z+WtFUTBu9PhOi9j/jfmBPu0mMEY4wIdAF8A==}
     engines: {node: '>= 0.6.0'}
 
+  prop-types@15.6.2:
+    resolution: {integrity: sha512-3pboPvLiWD7dkI3qf3KbUe6hKFKa52w+AE0VCqECtf+QHAKgOL37tTaNCnuX1nAAQ4ZhyP+kYVKf8rLmJ/feDQ==}
+
   prop-types@15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
 
@@ -5257,6 +5272,12 @@ packages:
     engines: {node: '>=12.22.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18
+
+  react-hooks-form@2.0.1:
+    resolution: {integrity: sha512-h/4qBKn3rW/yU3ywqtY5aWpyrMkZ+YjNnbuS1gZUYb12FyHXyBHXcKj+htyleMgPUxIjn2z2w6WuTy71BcKOYA==}
+    peerDependencies:
+      react: ^16.8.0
+      react-dom: ^16.8.0
 
   react-i18next@12.3.1:
     resolution: {integrity: sha512-5v8E2XjZDFzK7K87eSwC7AJcAkcLt5xYZ4+yTPDAW1i7C93oOY1dnr4BaQM7un4Hm+GmghuiPvevWwlca5PwDA==}
@@ -7320,6 +7341,11 @@ snapshots:
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
       '@jridgewell/trace-mapping': 0.3.9
+
+  '@ebay/nice-modal-react@1.2.13(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
 
   '@emotion/babel-plugin@11.11.0':
     dependencies:
@@ -13632,6 +13658,11 @@ snapshots:
 
   process@0.11.10: {}
 
+  prop-types@15.6.2:
+    dependencies:
+      loose-envify: 1.4.0
+      object-assign: 4.1.1
+
   prop-types@15.8.1:
     dependencies:
       loose-envify: 1.4.0
@@ -13818,6 +13849,13 @@ snapshots:
   react-hook-form@7.51.4(react@18.2.0):
     dependencies:
       react: 18.2.0
+
+  react-hooks-form@2.0.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+    dependencies:
+      lodash: 4.17.21
+      prop-types: 15.6.2
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
 
   react-i18next@12.3.1(i18next@22.5.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
