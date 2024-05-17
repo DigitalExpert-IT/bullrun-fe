@@ -7,6 +7,17 @@ import {
   FaTelegram,
 } from "react-icons/fa";
 
+export const TOKEN_ICON = {
+  "0x2859e4544C4bB03966803b044A93563Bd2D0DD4D": {
+    name: "shiba",
+    url: "https://ik.imagekit.io/msxxxaegj/image_gn/farm1.png",
+  },
+  "0x1D2F0da169ceB9fC7B3144628dB156f3F6c60dBE": {
+    name: "XRP",
+    url: "https://ik.imagekit.io/msxxxaegj/image_gn/farm2.png",
+  },
+};
+
 export const ICONS_FOOTER = [
   {
     href: "#",

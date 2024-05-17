@@ -22,7 +22,7 @@ export const useNftList = () => {
   const account = useAccountMap();
   const nft = useNFTBullRunContract();
   const bullrun = useBullRunContract();
-  const nftBuy = useContractWrite(bullrun.contract, "buyNft");
+  const nftBuy = useContractWrite(nft.contract, "buyNft");
   const approveUsdt = useContractWrite(usdt.contract, "approve");
   const [data, setData] = useState<NFTType[]>([]);
   const [isLoading, setLoading] = useState(true);
