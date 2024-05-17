@@ -3,10 +3,12 @@ import { useAddress, useBalance } from "@thirdweb-dev/react";
 import { ZERO_ADDRESS } from "constant/address";
 // import { WidgetProfileBalace } from "components/Widget/WidgetProfile";
 import { Trans } from "react-i18next";
-// import { prettyBn } from "utils";
+import { prettyBn } from "utils";
 import { useEffect, useState } from "react";
 import { WidgetProfileBalance } from "components/widget";
 import { CardProfileBonus } from "./CardProfileBonus";
+import { useUSDTContract } from "hooks";
+import { BigNumber } from "ethers";
 // import { useUSDTContract } from "hooks/useUSDTContract";
 // import { BigNumber } from "ethers";
 // import { useFLDContract } from "hooks/useFLDContract";
@@ -14,22 +16,22 @@ import { CardProfileBonus } from "./CardProfileBonus";
 export const CardProfileBalance = () => {
   const balance = useBalance();
   const address = useAddress() ?? ZERO_ADDRESS;
-  // const usdt = useUSDTContract();
+  const usdt = useUSDTContract();
   // const fld = useFLDContract();
 
   // const [fldBalance, setFldBalance] = useState<BigNumber>();
-  // const [usdtBalance, setUsdtBalance] = useState<BigNumber>();
+  const [usdtBalance, setUsdtBalance] = useState<BigNumber>();
 
-  // const getBalance = async () => {
-  //   setFldBalance((await fld.contract?.call("balanceOf", [address])) ?? 0);
-  //   setUsdtBalance((await usdt.contract?.call("balanceOf", [address])) ?? 0);
-  // };
+  const getBalance = async () => {
+    // setFldBalance((await fld.contract?.call("balanceOf", [address])) ?? 0);
+    setUsdtBalance((await usdt.contract?.call("balanceOf", [address])) ?? 0);
+  };
 
-  // useEffect(() => {
-  //   if (address !== ZERO_ADDRESS) {
-  //     getBalance();
-  //   }
-  // }, [address]);
+  useEffect(() => {
+    if (address !== ZERO_ADDRESS) {
+      getBalance();
+    }
+  }, [address]);
 
   return (
     <Stack
@@ -56,10 +58,9 @@ export const CardProfileBalance = () => {
             left={"0"}
           />
           <HStack w={"full"} justifyContent={{ base: "end", xs: "center" }}>
-            {/* <Text>
+            <Text>
               {prettyBn(balance.data?.value, 18)} {balance.data?.symbol}
-            </Text> */}
-            <Text>1000 BNB</Text>
+            </Text>
           </HStack>
         </WidgetProfileBalance>
         <WidgetProfileBalance
@@ -75,8 +76,7 @@ export const CardProfileBalance = () => {
             left={"0"}
           />
           <HStack w={"full"} justifyContent={{ base: "end", xs: "center" }}>
-            {/* <Text>{prettyBn(usdtBalance, 18)} USDT</Text> */}
-            <Text>1000 USDT</Text>
+            <Text>{prettyBn(usdtBalance, 18)} USDT</Text>
           </HStack>
         </WidgetProfileBalance>
       </Stack>

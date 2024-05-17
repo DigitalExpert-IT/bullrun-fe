@@ -2,18 +2,25 @@ import React from "react";
 import { prettyBn } from "utils";
 import { TOKEN_ICON } from "constant/icon";
 import { TokenList } from "./CardTokenList";
-import { useNFTBullRunContract } from "hooks";
+import { useAsyncCall, useNFTBullRunContract, useNftOwned } from "hooks";
 import { useTranslation } from "react-i18next";
 import { useContractRead } from "@thirdweb-dev/react";
 import { Stack, Box, Text, Button, Image, Spinner } from "@chakra-ui/react";
 
 export const CardOwnedNFT: React.FC<{ id: string }> = ({ id }) => {
   const nft = useNFTBullRunContract();
+  const { claimReward, isStartedClaim } = useNftOwned();
   const { data, isLoading } = useContractRead(
     nft.contract,
     "getCoinInvestDetail",
     [id]
   );
+
+  const { exec, isLoading: claimLoading } = useAsyncCall(claimReward);
+
+  const handleClaim = async () => {
+    await exec(id);
+  };
   const { t } = useTranslation();
 
   return (
@@ -73,8 +80,8 @@ export const CardOwnedNFT: React.FC<{ id: string }> = ({ id }) => {
             variant="solid"
             colorScheme="orange"
             color="white"
-            // onClick={handleFarm}
-            // isLoading={farmAsync.isLoading}
+            onClick={handleClaim}
+            isLoading={claimLoading}
           >
             Claim
           </Button>

@@ -53,7 +53,7 @@ export const FormRegister = () => {
     <Stack spacing="2" as="form" onSubmit={onSubmit}>
       <Box pos={"absolute"} top={{ base: "6", lg: "8" }} left={"-2"}>
         <Badge
-          bg={"#1C7ACB"}
+          bg={"#F16623"}
           minW={"48"}
           py={"2"}
           px={"6"}
@@ -111,9 +111,9 @@ export const FormRegister = () => {
             color="white"
             _hover={{
               bgGradient:
-                "linear-gradient(92deg, #135186 4.65%, #0B4649 96.4%)",
+                "linear-gradient(92deg, #9d4216 4.65%, #7f5226 96.4%)",
             }}
-            bgGradient="linear-gradient(92deg, #1D76CD 4.65%, #06C196 96.4%)"
+            bgGradient="linear-gradient(92deg, #F16623 4.65%, #FBA77E 96.4%)"
             px={"16"}
           >
             {t("common.register")}
