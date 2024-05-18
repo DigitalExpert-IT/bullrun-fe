@@ -56,7 +56,7 @@ export const useNftList = () => {
     const usdtBalance = await usdt.contract.call("balanceOf", [address]);
     const allowance = await usdt.contract.call("allowance", [
       address,
-      bullrun.contract?.getAddress(),
+      nft.contract?.getAddress(),
     ]);
 
     if (!account.data?.status) {
@@ -73,7 +73,7 @@ export const useNftList = () => {
 
     if (cardPrice.gte(allowance)) {
       await approveUsdt.mutateAsync({
-        args: [bullrun.contract?.getAddress(), cardPrice.mul(10)],
+        args: [nft.contract?.getAddress(), cardPrice.mul(10)],
       });
     }
 
