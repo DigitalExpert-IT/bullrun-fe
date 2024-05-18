@@ -1,17 +1,14 @@
 import { t } from "i18next";
-import { Center, Text, VStack, Box, Heading } from "@chakra-ui/react";
-import { useAddress } from "@thirdweb-dev/react";
-import { CopiableText } from "components/CopiableText";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { IoCopyOutline } from "react-icons/io5";
 import { CardProfile } from "./CardProfile";
-// import { prettyBn } from "utils";
-import { WidgetProfileBalance } from "components/widget";
+import { IoCopyOutline } from "react-icons/io5";
+import { useAddress } from "@thirdweb-dev/react";
 import { BULLRUN_CONTRACT } from "constant/address";
+import { CopiableText } from "components/CopiableText";
 import { CURRENT_CHAIN_ID, useAccountMap } from "hooks";
-
-const contractBullRun = BULLRUN_CONTRACT[CURRENT_CHAIN_ID as "0x38"];
+import { WidgetProfileBalance } from "components/widget";
+import { Center, Text, VStack, Heading } from "@chakra-ui/react";
 
 export const CardProfileAddress = () => {
   const router = useRouter();
@@ -32,26 +29,7 @@ export const CardProfileAddress = () => {
       <VStack gap={"8"} mt="3rem">
         <WidgetProfileBalance w="full" justifyContent="center">
           <Center py={"2"}>
-            <CopiableText
-              alignItems={"left"}
-              textAlign={"left"}
-              gap={2}
-              fontSize={{ base: "2xs", sm: "xs", xl: "sm" }}
-              value={"tektok"}
-            >
-              <Text
-                as={"span"}
-                display={"flex"}
-                justifyContent={"left"}
-                alignItems={"left"}
-                gap={"2"}
-                fontSize={"lg"}
-              >
-                {t("common.contractBullRun")}
-                <IoCopyOutline />
-              </Text>
-              {contractBullRun?.toUpperCase()}
-            </CopiableText>
+            <Heading>Address</Heading>
           </Center>
         </WidgetProfileBalance>
         <WidgetProfileBalance justifyContent={"center"}>

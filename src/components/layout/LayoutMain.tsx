@@ -12,8 +12,8 @@ export const LayoutMain: React.FC<MainProps> = ({ children }) => {
     <Box>
       <Metadata
         language="en"
-        author="BullRun"
-        description="The BullRun aims to revolutionize the world of network marketing by decentralizing millions of users through web3 applications"
+        author="Bullcuan"
+        description="The Bullcuan aims to revolutionize the world of network marketing by decentralizing millions of users through web3 applications"
       />
       <Navbar />
       {children}
