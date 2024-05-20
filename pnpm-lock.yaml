@@ -120,8 +120,8 @@ importers:
         specifier: 13.4.4
         version: 13.4.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       pass-bullrun:
-        specifier: ^1.2.0
-        version: 1.2.0(@ethersproject/bignumber@5.7.0)(typescript@5.4.5)
+        specifier: ^1.3.0
+        version: 1.3.0(@ethersproject/bignumber@5.7.0)(typescript@5.4.5)
       prisma:
         specifier: ^4.8.0
         version: 4.16.2
@@ -5028,8 +5028,8 @@ packages:
     resolution: {integrity: sha512-rum1bPifK5SSar35Z6EKZuYPJx85pkNaFrxBK3mwdfSJ1/WKbYrjoW/zTPSjRRamfmVX1ACBIdFAO0VRErW/EA==}
     engines: {node: '>=18'}
 
-  pass-bullrun@1.2.0:
-    resolution: {integrity: sha512-EUq33iffmOX/sg4JM9pBgCWWzHkJRzL1501FLRjW1HFdYFEJT387bsnKsylm9GE6vsTCrsFuUsfbxtOjwW5QeA==}
+  pass-bullrun@1.3.0:
+    resolution: {integrity: sha512-RBEjAT5zR1yjVsvcsmn+A2gdHQ2ueK7m7WB9M5+FQkftl8Kud9XaKRmBphQ+Ue9CkqqKy1iRRJpvuO4BQoiymw==}
 
   path-exists@3.0.0:
     resolution: {integrity: sha512-bpC7GYwiDYQ4wYLe+FA8lhRjhQCMcQGuSgGGqDkg/QerRWw9CmGRT0iSOVRSZJ29NMLZgIzqaljJ63oaL4NIJQ==}
@@ -13534,7 +13534,7 @@ snapshots:
       index-to-position: 0.1.2
       type-fest: 4.18.2
 
-  pass-bullrun@1.2.0(@ethersproject/bignumber@5.7.0)(typescript@5.4.5):
+  pass-bullrun@1.3.0(@ethersproject/bignumber@5.7.0)(typescript@5.4.5):
     dependencies:
       '@openzeppelin/contracts': 4.9.6
       '@openzeppelin/contracts-upgradeable': 4.9.6
