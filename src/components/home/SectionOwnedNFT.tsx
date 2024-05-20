@@ -1,21 +1,22 @@
+import { useNftOwned } from "hooks";
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { CardOwnedNFT } from "components/card";
 import {
   Box,
   Heading,
   Wrap,
   WrapItem,
   Stack,
-  Image,
   Container,
   Spinner,
 } from "@chakra-ui/react";
-import { useTranslation } from "react-i18next";
-import { CardOwnedNFT } from "components/card";
-import { useNftOwned } from "hooks";
+import { useConnectionStatus } from "@thirdweb-dev/react";
 
 export const SectionOwnedNFT = () => {
-  const { data, isLoading } = useNftOwned();
   const { t } = useTranslation();
+  const { data, isLoading } = useNftOwned();
+  const statusConnect = useConnectionStatus();
 
   return (
     <Box mt="40" pos="relative">
@@ -40,11 +41,29 @@ export const SectionOwnedNFT = () => {
             backdropBlur="2.5px"
             spacing="30px"
           >
-            {isLoading ? (
-              <Box display="flex" justifyContent="center" minH="55vh">
-                <Spinner size="xl" />
-              </Box>
-            ) : data?.length === 0 ? (
+            {statusConnect === "connected" ? (
+              isLoading ? (
+                <Box display="flex" justifyContent="center" minH="55vh">
+                  <Spinner size="xl" />
+                </Box>
+              ) : data?.length === 0 ? (
+                <Box
+                  textAlign="center"
+                  display="flex"
+                  alignItems="center"
+                  my="10"
+                  minH="55vh"
+                >
+                  <Heading>{t("error.notOwnedNft")}</Heading>
+                </Box>
+              ) : (
+                data?.map((item: any) => (
+                  <WrapItem key={item.metadata.id}>
+                    <CardOwnedNFT id={item.metadata.id} />
+                  </WrapItem>
+                ))
+              )
+            ) : (
               <Box
                 textAlign="center"
                 display="flex"
@@ -52,14 +71,8 @@ export const SectionOwnedNFT = () => {
                 my="10"
                 minH="55vh"
               >
-                <Heading>{t("error.notOwnedNft")}</Heading>
+                <Heading>Please connect wallet</Heading>
               </Box>
-            ) : (
-              data?.map((item: any) => (
-                <WrapItem key={item.metadata.id}>
-                  <CardOwnedNFT id={item.metadata.id} />
-                </WrapItem>
-              ))
             )}
           </Wrap>
         </Stack>
