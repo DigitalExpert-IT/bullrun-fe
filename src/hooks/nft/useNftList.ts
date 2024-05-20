@@ -2,7 +2,7 @@ import { prettyBn } from "utils";
 import { BigNumber } from "ethers";
 import { useState, useEffect } from "react";
 import { useAddress, useContractWrite } from "@thirdweb-dev/react";
-import { BullPasDev } from "pass-bullrun/typechain-types";
+import { Bullcuan } from "pass-bullrun/typechain-types";
 import {
   useUSDTContract,
   useNFTBullRunContract,
@@ -10,7 +10,7 @@ import {
   useAccountMap,
 } from "hooks";
 
-type BaseCardType = Awaited<ReturnType<BullPasDev["listPreMinted"]>>;
+type BaseCardType = Awaited<ReturnType<Bullcuan["listPreMinted"]>>;
 type NFTType = BaseCardType & {
   id: BigNumber;
   price: BigNumber;
@@ -21,7 +21,6 @@ export const useNftList = () => {
   const usdt = useUSDTContract();
   const account = useAccountMap();
   const nft = useNFTBullRunContract();
-  const bullrun = useBullRunContract();
   const nftBuy = useContractWrite(nft.contract, "buyNft");
   const approveUsdt = useContractWrite(usdt.contract, "approve");
   const [data, setData] = useState<NFTType[]>([]);
