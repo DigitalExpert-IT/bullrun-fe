@@ -4,7 +4,6 @@ import { INavigation } from "constant/navigation";
 import { ButtonConnectWallet } from "components";
 import { useTranslation } from "react-i18next";
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import Image from "next/image";
 import {
   Drawer,
   DrawerBody,
@@ -14,16 +13,12 @@ import {
   DrawerCloseButton,
   Stack,
   Text,
-  AspectRatio,
   Flex,
   Icon,
   useDisclosure,
   Collapse,
-  Box,
-  Button,
   Heading,
 } from "@chakra-ui/react";
-// import { useHasRoleAdmin } from "hooks/admin/useHasRoleAdmin";
 import { useConnectionStatus, useAddress } from "@thirdweb-dev/react";
 
 interface MobileDrawerProps {
@@ -36,8 +31,6 @@ export const DrawerMobileNav: React.FC<MobileDrawerProps> = props => {
   const { isOpen, onClose, data } = props;
   const { isOpen: openChild, onToggle } = useDisclosure();
   const { t } = useTranslation();
-  // const address = useAddress();
-  // const { data: isHasRoleAdmin } = useHasRoleAdmin();
   const connectionStatus = useConnectionStatus();
 
   return (
@@ -47,17 +40,6 @@ export const DrawerMobileNav: React.FC<MobileDrawerProps> = props => {
         <DrawerCloseButton />
         <DrawerHeader justifyContent="center" display="flex">
           <Heading fontSize="6xl">BullRun</Heading>
-          {/* <AspectRatio ratio={9 / 3} minWidth="190">
-            <Image
-              src={"/assets/logo/folkvangr-logo2.png"}
-              alt="logo-image"
-              style={{
-                objectFit: "cover",
-              }}
-              sizes="(max-width: 768px) 100vw,"
-              fill
-            />
-          </AspectRatio> */}
         </DrawerHeader>
         <DrawerBody p="0">
           <Stack spacing="5">
