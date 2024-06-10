@@ -26,9 +26,11 @@ COPY . .
 
 ARG CHAIN_ID
 ARG THIRDWEB_ID
+ARG RPC_URL
 
 ENV NEXT_PUBLIC_CHAIN_ID=${CHAIN_ID}
 ENV NEXT_PUBLIC_THIRDWEB=${THIRDWEB_ID}
+ENV NEXT_PUBLIC_RPC_URL=${RPC_URL}
 
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
