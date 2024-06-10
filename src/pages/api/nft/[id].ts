@@ -21,7 +21,7 @@ const nftContract: Contract = new Contract(
 ) as unknown as Bullcuan;
 
 // in this case why we should doing this, because wallet DAPP get url from param id, not list id.
-// and this approach we can get nft imge on wallet 
+// and this approach we can get nft imge on wallet to 
 
 const handler: NextApiHandler = async (req, res) => {
   const tokenId = Number(req.query.id);
